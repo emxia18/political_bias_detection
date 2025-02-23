@@ -2,6 +2,10 @@ import kagglehub
 import csv
 import pandas as pd
 import numpy as np
+import re
+
+def clean_text_func(text):
+    return re.sub(r"[^a-zA-Z0-9\s\.,!?;:'\"()-]", "", text)
 
 # path = kagglehub.dataset_download("mayobanexsantana/political-bias")
 # print("Path to dataset files:", path)
@@ -19,10 +23,13 @@ for index, row in df.iterrows():
     bias = row["Bias"]
     if bias not in bias_list:
         print(f"invalid bias type {bias}")
-    
-    ds.append([title, text, bias])
 
-# print(ds[0])
+    if isinstance(text, str):
+        clean_text = clean_text_func(text)
+        clean_title = clean_text_func(title)
+        ds.append([clean_title, clean_text, bias])
+    
+print(ds[30])
 print(len(ds))
 
 
