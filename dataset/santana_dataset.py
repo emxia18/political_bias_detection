@@ -7,9 +7,6 @@ import re
 def clean_text_func(text):
     return re.sub(r"[^a-zA-Z0-9\s\.,!?;:'\"()-]", "", text)
 
-# path = kagglehub.dataset_download("mayobanexsantana/political-bias")
-# print("Path to dataset files:", path)
-
 df = pd.read_csv('dataset/mayobanexsantana/political-bias/versions/1/Political_Bias.csv')
 print(df.head())
 print(len(df))
