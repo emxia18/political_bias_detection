@@ -1,53 +1,50 @@
-import kagglehub
-import csv
-import pandas as pd
-import numpy as np
-import re
 import torch
+import pandas as pd
+import re
 from torch.utils.data import Dataset
-from transformers import DistilBertForSequenceClassification
 from transformers import BertTokenizer, BertForSequenceClassification, Trainer, TrainingArguments
-from sklearn.model_selection import train_test_split
 
+# Define function to clean text
 def clean_text_func(text):
     return re.sub(r"[^a-zA-Z0-9\s\.,!?;:'\"()-]", "", text)
 
+# Load the dataset
 df = pd.read_csv('dataset/mayobanexsantana/political-bias/versions/1/Political_Bias.csv')
-print(df.head())
-print(len(df))
-print(df.columns)
 
+# Define bias categories
 bias_list = ['left', 'lean left', 'center', 'lean right', 'right']
+
+# Preprocess dataset
 ds = []
 for index, row in df.iterrows():
     title = row["Title"]
     text = row["Text"]
     bias = row["Bias"]
     if bias not in bias_list:
-        print(f"invalid bias type {bias}")
+        print(f"Invalid bias type {bias}")
     if isinstance(text, str):
         clean_text = clean_text_func(text)
         clean_title = clean_text_func(title)
         ds.append([clean_title, clean_text, bias])
-    
-print(ds[30])
-print(len(ds))
 
-train_data, val_data = train_test_split(ds, test_size=0.2, random_state=42)
+# Split into validation set (assuming training was done separately)
+from sklearn.model_selection import train_test_split
+_, val_data = train_test_split(ds, test_size=0.2, random_state=42)
 
+# Define dataset class
 class PoliticalBiasDataset(Dataset):
     def __init__(self, data, tokenizer, max_length=512):
         self.tokenizer = tokenizer
         self.data = data
         self.max_length = max_length
         self.label_map = {'left': 0, 'lean left': 1, 'center': 2, 'lean right': 3, 'right': 4}
-    
+        self.inverse_label_map = {v: k for k, v in self.label_map.items()}  # Reverse mapping
+
     def __len__(self):
         return len(self.data)
-    
+
     def __getitem__(self, idx):
         title, text, bias = self.data[idx]
-
         combined_text = title + " " + text
         encoding = self.tokenizer(
             combined_text,
@@ -57,56 +54,30 @@ class PoliticalBiasDataset(Dataset):
             return_tensors='pt'
         )
         encoding = {k: v.squeeze(0) for k, v in encoding.items()}
-        label = self.label_map[bias]
-        encoding['labels'] = torch.tensor(label, dtype=torch.long)
+        encoding['labels'] = torch.tensor(self.label_map[bias], dtype=torch.long)
         return encoding
 
+# Load the tokenizer and model
+model_path = "results/checkpoint-1020"  # Change this to your latest checkpoint directory
 tokenizer = BertTokenizer.from_pretrained('distilbert-base-uncased')
-model = BertForSequenceClassification.from_pretrained('distilbert-base-uncased', num_labels=5)
+model = BertForSequenceClassification.from_pretrained(model_path)
 
-train_dataset = PoliticalBiasDataset(train_data, tokenizer)
+# Prepare validation dataset
 val_dataset = PoliticalBiasDataset(val_data, tokenizer)
 
+# Set up Trainer for evaluation
 training_args = TrainingArguments(
-    output_dir='./results',
-    num_train_epochs=3,
-    per_device_train_batch_size=8,
+    output_dir="./results",
     per_device_eval_batch_size=8,
-    warmup_steps=500,
-    weight_decay=0.01,
-    logging_steps=10,
-
-    evaluation_strategy="epoch",   # Evaluate after each epoch
-    save_strategy="epoch",         # Save only at the end of each epoch
-    save_total_limit=1,            # Keep only the last checkpoint
-    load_best_model_at_end=False,   # Load the best model at the end
 )
 
 trainer = Trainer(
     model=model,
     args=training_args,
-    train_dataset=train_dataset,
     eval_dataset=val_dataset,
 )
 
-trainer.train()
-
-# trainer.train(resume_from_checkpoint="results/checkpoint-1020")
-
-# checkpoint_path = "results/checkpoint-1020"
-
-# model = BertForSequenceClassification.from_pretrained(checkpoint_path)
-
-# trainer = Trainer(
-#     model=model,
-#     args=training_args,
-#     # train_dataset=train_dataset, 
-#     eval_dataset=val_dataset,
-# )
-
-eval_results = trainer.evaluate()
-print("Evaluation results:", eval_results)
-
+# Run evaluation and get predictions
 predictions = trainer.predict(val_dataset)
 
 # Extract logits and compute probabilities
@@ -134,4 +105,3 @@ results_df.to_csv("evaluation_results.csv", index=False)
 # Print sample results
 print(results_df.head())
 print("\nEvaluation results saved to 'evaluation_results.csv'")
-
