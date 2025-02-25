@@ -1,13 +1,13 @@
 Actual Bias,Predicted Bias
-left,right
-right,right
-right,right
 left,left
+lean right,right
+right,right
+lean left,left
 center,left
 left,left
 center,left
 left,right
-right,left
+lean right,left
 left,left
 right,left
 left,left
@@ -18,32 +18,32 @@ right,left
 left,left
 right,right
 left,left
+lean right,left
+left,left
+left,left
+left,left
+left,left
+left,left
+left,left
+left,left
+left,left
+lean right,left
+left,left
 right,left
-left,left
-left,left
-left,left
-left,left
-left,left
-left,left
-left,left
-left,left
-right,left
-left,left
-right,left
-right,right
+lean right,right
 center,left
+lean left,left
 left,left
-left,left
-right,right
-right,right
+lean right,left
+lean right,right
 center,right
 left,left
-left,left
-left,left
+lean left,left
+lean left,left
 center,right
 left,left
 right,right
-right,left
+lean right,left
 left,left
 left,right
 right,right
@@ -52,13 +52,13 @@ left,left
 left,left
 left,left
 left,left
-left,right
-right,right
-left,left
 left,left
 right,right
 left,left
 left,left
+right,right
+left,left
+lean left,left
 left,left
 left,left
 left,left
@@ -67,61 +67,61 @@ left,left
 left,left
 left,left
 center,right
-left,left
-left,left
+lean left,left
+lean left,left
 right,right
-right,left
+lean right,left
+center,left
+lean left,left
+left,left
 center,right
 left,left
 left,left
-center,right
 left,left
 left,left
 left,left
-left,left
-left,right
 left,left
 right,right
 center,left
+lean left,left
 left,left
-left,left
-left,left
-left,right
-right,right
-right,left
-center,right
-left,right
-center,left
 left,left
 left,left
 right,right
+lean right,left
 center,right
 left,right
-right,right
-left,left
 center,left
 left,left
 left,left
+lean right,right
+center,right
+left,right
+lean right,right
+lean left,left
+center,left
+left,left
+left,left
+right,left
+left,left
+lean left,left
+left,left
+left,left
+center,left
 right,right
 left,right
-left,left
-left,left
-left,left
-center,left
-right,right
-left,left
-right,right
+lean right,left
 right,right
 center,left
-right,right
+lean right,right
 left,left
 center,left
-right,right
+right,left
 left,left
-left,left
-left,left
-left,left
-right,right
+lean left,left
+lean left,left
+lean left,left
+right,left
 left,left
 left,left
 center,left
@@ -133,13 +133,13 @@ right,right
 left,left
 right,right
 left,left
-left,left
+lean left,left
 left,left
 left,left
 left,left
 left,left
 right,left
-center,right
+center,left
 left,left
 right,right
 left,left
@@ -149,57 +149,57 @@ left,left
 left,left
 right,left
 left,left
+lean left,left
+left,left
+lean left,left
 left,left
 left,left
-left,left
-left,left
-left,right
-right,right
-left,right
-left,left
-right,left
+lean right,left
 left,left
 left,left
 right,left
 left,left
 left,left
+lean right,left
 left,left
+lean left,left
 left,left
+lean left,left
 left,left
 left,left
 right,right
 left,left
 left,left
-left,left
+lean left,left
 left,left
 center,right
 left,left
-right,right
-right,right
+lean right,left
+lean right,right
 center,left
-left,left
-center,left
-left,left
-left,left
-left,left
-right,right
-left,left
+lean left,left
 center,right
 left,left
+left,left
+left,left
 right,right
+lean left,left
+center,left
+left,left
+right,left
 left,left
 center,right
 left,left
 left,left
-right,right
+lean right,left
 left,left
 left,left
-left,left
+lean left,left
 center,right
 left,left
 left,left
-right,left
-right,right
+lean right,left
+lean right,left
 center,left
 center,left
 right,left
@@ -209,54 +209,54 @@ center,left
 right,left
 left,left
 left,left
-left,left
-left,left
+lean left,left
+lean left,left
 left,left
 left,left
 left,left
 right,right
+lean left,left
+right,left
+lean left,left
+left,left
+left,left
+center,right
+left,left
+left,left
+left,left
 left,left
 right,left
 left,left
-left,left
-left,left
 center,right
 left,left
-left,right
-left,left
-left,right
-right,left
-left,left
-center,right
-left,left
-right,right
-center,right
-left,left
-left,right
-left,left
-left,left
-left,left
+lean right,right
+center,left
 left,left
 left,right
 left,left
 left,left
 left,left
 left,left
-left,left
-right,left
-right,left
-left,left
-right,left
-left,right
+lean left,left
 left,left
 left,left
 left,left
-left,left
-left,left
-right,left
+lean left,left
+lean left,left
 right,right
+right,left
+left,left
+right,left
+left,left
+lean left,left
 left,left
 left,left
+left,left
+left,left
+right,left
+lean right,left
+left,left
+lean left,left
 center,left
 left,left
 left,left
@@ -265,6 +265,17 @@ left,left
 left,left
 left,left
 left,left
+lean left,left
+right,right
+right,right
+lean left,left
+left,left
+left,left
+left,left
+left,left
+left,left
+right,left
+right,right
 left,left
 right,right
 right,left
@@ -273,18 +284,7 @@ left,left
 left,left
 left,left
 left,left
-left,left
-right,left
-right,right
-left,left
-right,right
-right,left
-left,left
-left,left
-left,left
-left,left
-left,left
-right,right
+lean right,right
 left,left
 left,left
 center,right
@@ -292,7 +292,7 @@ left,left
 right,right
 left,left
 left,left
-left,left
+lean left,left
 left,left
 left,left
 left,left
@@ -302,7 +302,7 @@ center,right
 left,left
 left,left
 left,left
-left,left
+lean left,left
 left,left
 left,left
 left,left
@@ -319,289 +319,79 @@ left,left
 left,left
 left,left
 left,left
-left,left
+lean left,left
 right,left
-left,right
 left,left
+lean left,left
 right,right
 left,left
 left,left
+lean right,left
 right,right
-right,right
-left,left
-left,left
+lean left,left
+lean left,left
 right,right
 center,left
+lean left,left
 left,left
 left,left
-left,left
-left,left
+lean left,left
 left,left
 right,right
 left,left
+lean left,left
 left,left
-left,left
-left,left
-left,left
-left,left
+lean left,left
+lean left,left
+lean left,left
 left,left
 right,left
-left,left
-left,right
-right,right
-left,left
-left,left
-left,left
-left,left
-right,right
-left,left
-left,left
-right,right
-left,left
-left,left
-center,left
+lean left,left
 left,left
 right,right
 left,left
 left,left
 left,left
 left,left
-left,left
-right,right
-right,left
-center,left
-left,left
-left,left
-left,left
-left,left
-right,left
-left,left
-left,left
-left,left
-left,left
-left,left
-left,left
-right,right
-right,left
-left,left
-left,left
-left,left
-right,right
-left,left
-left,left
-left,left
-left,left
-right,left
-left,left
-left,left
-left,left
-left,left
-left,left
-left,left
-left,right
-right,left
-right,right
-right,left
-right,left
-left,left
-left,left
-left,left
-left,left
-right,right
-left,left
 right,right
 left,left
 left,left
 right,right
-left,left
-left,left
-left,left
-left,right
-right,left
-left,left
-left,left
-left,left
-left,left
-right,left
-left,left
-left,left
-left,left
-left,left
-left,left
+lean left,left
 left,left
 center,left
 left,left
-left,left
-center,left
-left,left
-right,left
-left,left
-left,left
-left,left
-right,right
 right,right
 left,left
 left,left
-left,right
-center,right
-center,right
-right,left
-left,left
-center,right
-right,right
-left,left
-right,right
-left,left
-left,left
-left,left
-left,right
-right,left
-right,left
-center,right
-right,right
-left,left
-right,left
-right,right
-right,right
-left,left
-left,left
-left,left
-left,left
-left,left
-left,left
+lean left,left
 left,left
 left,left
 right,right
-left,left
-left,left
-left,right
-left,left
-left,left
-left,left
-left,left
-left,left
-left,left
-right,right
-right,right
-left,left
-left,left
-left,left
-center,right
-left,left
-left,left
+lean right,right
 center,right
 left,left
 left,left
 left,left
 left,left
+lean right,left
 left,left
 left,left
-left,left
-left,left
-left,left
-left,left
-left,left
-left,left
-center,left
-left,left
-right,right
-left,left
-left,left
-center,right
-left,left
-left,left
-left,left
-left,left
-center,left
-left,left
-left,left
-right,right
-left,left
-left,left
-right,right
-left,left
-left,left
-center,left
-left,left
-left,left
-left,left
-right,left
-left,left
-right,right
-left,left
-left,left
+lean left,left
 left,left
 left,left
 left,left
 right,right
-left,right
-left,left
-left,left
-left,left
-center,left
-right,right
-left,left
-left,left
-right,left
-right,left
-left,left
-left,left
-left,left
-left,left
-right,left
-left,left
-left,left
-left,left
-left,right
-center,left
-right,right
-left,left
-left,left
-left,left
-left,left
-left,left
-left,left
-left,left
-center,left
-left,left
-left,left
-left,left
-center,right
-left,left
-left,left
-right,right
-right,right
-left,left
-left,left
-left,left
+lean right,left
+lean left,left
 left,left
 left,left
 right,right
 left,left
-right,right
+lean left,left
 left,left
 left,left
-left,left
-left,left
-left,left
-left,left
-center,left
-left,left
-left,left
-left,left
-left,left
-left,left
-right,left
-left,left
-right,right
-right,right
-left,right
-center,right
-left,left
-left,left
-left,left
-left,left
-left,left
+lean right,left
 left,left
 left,left
 left,left
@@ -609,64 +399,274 @@ left,left
 left,left
 left,left
 left,right
+right,left
+right,right
+right,left
+lean right,left
+lean left,left
 left,left
+left,left
+left,left
+right,right
+left,left
+lean right,left
+left,left
+left,left
+right,right
+left,left
+left,left
+lean left,left
+left,left
+right,left
+left,left
+left,left
+left,left
+left,left
+lean right,left
+left,left
+left,left
+left,left
+left,left
+left,left
+lean left,left
+center,left
+lean left,left
+left,left
+center,left
+left,left
+right,left
+left,left
+left,left
+left,left
+right,right
+right,right
+left,left
+left,left
+lean left,right
+center,left
+center,right
+lean right,left
+left,left
+center,right
+right,right
+left,left
+right,right
+left,left
+left,left
+left,left
+lean left,right
+right,left
+right,left
+center,left
+right,left
+lean left,left
+right,left
+lean right,lean right
+right,right
+left,left
+left,left
+left,left
+left,left
+left,left
+lean left,left
+left,left
+left,left
+right,right
+left,left
+left,left
+left,left
+lean left,left
+lean left,left
+lean left,left
+left,left
+left,left
+lean left,left
+right,right
+lean right,right
+lean left,left
+lean left,left
+lean left,left
+center,left
 left,left
 left,left
 center,right
-right,left
+left,left
+left,left
+left,left
+lean left,left
+left,left
+left,left
+left,left
+left,left
+left,left
+left,left
+lean left,left
 left,right
 center,left
 left,left
+right,right
+lean left,right
+left,left
+center,left
+left,left
+lean left,left
+left,left
+left,left
+center,left
+left,lean right
+left,left
+right,right
+left,left
+lean left,left
+right,right
+left,left
+left,left
 center,left
 left,left
 left,left
 left,left
-center,right
-left,left
-left,left
+right,left
 left,left
 right,left
 left,left
 left,left
-left,left
-center,left
-right,left
-left,left
-left,left
-left,left
-left,left
-left,left
-center,right
-right,left
-right,left
-right,left
-left,left
-left,left
-right,left
-left,left
-left,left
-right,right
-left,left
-left,left
-center,left
-right,right
 left,left
 left,left
 left,left
 right,right
-right,left
-right,right
-left,left
-left,left
-left,left
 left,right
 left,left
 left,left
-left,right
+left,left
+center,left
+right,right
+left,left
+left,left
+right,left
+lean right,right
+left,left
+left,left
+left,left
+left,left
+lean right,left
+left,left
+left,left
+left,left
+left,left
+center,left
+right,right
+left,left
+left,left
+left,left
+left,left
+left,left
+left,left
+left,left
+center,left
+left,left
 left,left
 left,left
 center,right
 left,left
+left,left
+right,right
+right,right
+left,left
+left,left
+left,left
+left,left
+lean left,left
+right,right
+left,left
+right,right
+left,left
+left,left
+left,left
+left,left
+left,left
+left,left
+center,left
+lean left,left
+lean left,left
+left,left
+left,left
+left,left
+right,left
+left,left
+right,right
+right,left
+left,left
+center,left
+left,left
+lean left,left
+lean left,left
+left,left
+lean left,left
+left,left
+left,left
+lean left,left
+left,left
+left,left
+left,left
+lean left,left
+left,left
+lean left,left
+lean left,left
+center,left
+lean right,left
+left,left
+center,left
+left,left
+center,left
+left,left
+left,left
+left,left
+center,right
+left,left
+left,left
+left,left
+right,left
+left,left
+left,left
+left,left
+center,left
+right,left
+left,left
+lean left,left
+left,left
+left,left
+left,left
+center,right
+lean right,left
+right,right
+right,left
+lean left,left
+left,left
+lean right,left
+left,left
+lean left,left
+right,right
+left,left
+lean left,left
+center,left
+right,left
+left,left
+left,left
+left,left
+lean right,right
+lean right,left
+lean right,right
+left,left
+left,left
+left,left
+left,left
+left,left
+lean left,left
+left,left
+left,left
+left,left
+center,right
+lean left,left
 right,right
 left,left
 left,left
@@ -676,6 +676,6 @@ right,right
 left,left
 left,left
 left,left
-right,right
+lean right,left
 left,left
 left,left
