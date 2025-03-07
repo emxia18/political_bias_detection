@@ -76,10 +76,10 @@ training_args = TrainingArguments(
     weight_decay=0.01,
     logging_steps=10,
 
-    evaluation_strategy="epoch",   # Evaluate after each epoch
-    save_strategy="epoch",         # Save only at the end of each epoch
-    save_total_limit=1,            # Keep only the last checkpoint
-    load_best_model_at_end=False,   # Load the best model at the end
+    evaluation_strategy="epoch",  
+    save_strategy="epoch",  
+    save_total_limit=1,           
+    load_best_model_at_end=False, 
 )
 
 trainer = Trainer(
@@ -109,21 +109,16 @@ print("Evaluation results:", eval_results)
 
 predictions = trainer.predict(val_dataset)
 
-# Extract logits and compute probabilities
 logits = predictions.predictions
 probabilities = torch.nn.functional.softmax(torch.tensor(logits), dim=-1)
 
-# Convert probabilities to predicted class indices
 predicted_labels = torch.argmax(probabilities, axis=1).numpy()
 
-# Convert indices to bias labels
 label_map = {0: 'left', 1: 'lean left', 2: 'center', 3: 'lean right', 4: 'right'}
 predicted_biases = [label_map[label] for label in predicted_labels]
 
-# Extract true labels
 true_labels = [label_map[example["labels"].item()] for example in val_dataset]
 
-# Save results to CSV
 results_df = pd.DataFrame({
     "Actual Bias": true_labels,
     "Predicted Bias": predicted_biases
@@ -131,7 +126,6 @@ results_df = pd.DataFrame({
 
 results_df.to_csv("evaluation_results.csv", index=False)
 
-# Print sample results
 print(results_df.head())
 print("\nEvaluation results saved to 'evaluation_results.csv'")
 

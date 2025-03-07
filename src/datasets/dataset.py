@@ -47,7 +47,3 @@ class Dataset:
             "Right": bias_counts.get('right', 0),
             "Center": bias_counts.get('center', 0),
         }
-
-dataset = Dataset('data/allsides_balanced_news_headlines-texts.csv')
-print(dataset.get_data()[0])
-print(dataset.get_bias_counts())
