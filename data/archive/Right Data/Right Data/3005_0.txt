@@ -1,0 +1,16 @@
+            The media falsely reported that DHS said Russia hacked "election result," except that's not what happened at all. (PAUL J. RICHARDS/AFP/Getty Images)        
+What happened?
+Several mainstream media outlets reported Friday that the U.S. government recently confirmed that Russian government "cyber actors" attempted to hack the 2016 election results or "election systems."
+JUST IN: “Russian government cyber actors” unsuccessfully attempted to hack 2016 election results in Wisconsin, DHS tells state officials pic.twitter.com/PMd6Gj5z4b— NBC Politics (@NBCPolitics) September 22, 2017         BREAKING: US government tells election officials in 21 states that hackers targeted their systems in 2016, but most not breached. — AP Eastern US (@AP Eastern US)     1506115001.0     
+However, the tweets don't correctly characterize what the Department of Homeland Security said about Russia's actions, giving readers a very misguided idea of what actually happened.
+What did the DHS say?
+The DHS said that 21 states were affected. But it wasn't election results or voting machines that the Russians attempted to manipulate, but rather the voter registrations systems, according to Wisconsin officials, one of the effected states.
+"This afternoon, the U.S. Department of Homeland Security notified the Wisconsin Elections Commission for the first time that 'Russia government cyber actors' unsuccessfully targeted the state's voter registration system in 2016," the officials said in a statement. They explained the attempts had "no impact on Wisconsin’s systems or the election."
+The Hill further explained why voting machine or election results cannot be tampered with:
+In the majority of the states, the Department of Homeland Security only saw preparations for hacking, like scanning to find potential modes for attack. Voting machines are not connected to the internet and cannot be scanned in this way, but other systems, including those housing voter rolls, can be.  They got called out
+Jessica Huseman, a reporter for ProPublica, called NBC out on social media for the error:
+This is false. It says nothing - Nothing - about "election results." Registration systems are disconnected from the results. https://t.co/vcWCXUipm9— Jessica Huseman (@JessicaHuseman) September 22, 2017
+I'm not going to hold my breath on @NBCPolitics writing a correction here - though they absolutely should.— Jessica Huseman (@JessicaHuseman) September 22, 2017
+This is a flatly irresponsible tweet & it is stunning that an organization that reports about elections does not know how these systems work— Jessica Huseman (@JessicaHuseman) September 22, 2017
+Later, a 'clarification'
+CLARIFICATION: Russian government cyber actors targeted the voter registration system and election infrastructure, DHS tells WI officials— NBC Politics (@NBCPolitics) September 22, 2017

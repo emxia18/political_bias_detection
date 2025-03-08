@@ -1,0 +1,19 @@
+      	The personal details of US military commanders and thousands of prominent Americans have been amassed since 2017 by a Chinese technology company with reported ties to the country’s military and intelligence networks, according to a report on leaked data.
+A database of about 2.4 million people, including at least 50,000 Americans, was compiled by the small Chinese company called Shenzhen Zhenhua Data Technology, the Washington Post reported.
+The massive trove — called the Overseas Key Information Database, or OKIDB — includes biographies and service records of the US military commanders, as well as social media chatter by Beijing watchers in Washington, DC, according to the newspaper.
+It purports to provide insights into foreign political, military and business figures, as well as details about countries’ infrastructure and military deployments, according to an unsecured copy of the database that was retrieved by an Australian cybersecurity consulting outfit.
+Although there is no evidence suggesting OKIDB’s software is being used by Beijing, Zhenhua’s materials characterize the company as a patriotic outfit whose primary target customer is the military, the Washington Post reported.
+American experts who have combed through the cache offer differing opinions about its value.
+Large portions of the database appear to be raw data copied from US providers such as Factiva, LexisNexis and LinkedIn — and contain little human analysis or finalized intelligence reports.
+Much of the social media material culled appears to be derived from public accounts anyone can access.
+“There might be gold in there, but this is not something that’s useful enough for military or intelligence targeting,” one cybersecurity contractor for the US government who has reviewed the data told the Washington Post on condition of anonymity.
+Zhenhua’s claims, the contractor told the paper, are “totally aspirational.”
+Robert Potter, who founded the Australia-based Internet 2.0 cybersecurity firm, and independent researcher Christopher Balding provided an incomplete copy of the database that feeds into the OKIDB software to several news outlets, including the Washington Post.
+“Open liberal democracies must consider how best to deal with the very real threats presented by Chinese monitoring of foreign individuals and institutions outside established legal limits,” Balding told the newspaper.
+Facebook spokeswoman Liz Bourgeois said the social media giant has sent Zhenhua a cease-and-desist letter.
+“Scraping public data, as this company appears to have done to a number of services including Facebook, is against our policies,” Bourgeois told the Washington Post.
+A Twitter rep said the company had no data-sharing agreements with Zhenhua, while a LinkedIn spokeswoman said the company does not permit the use of “software that scrapes or copies information” under its user agreement.
+Zhenhua declined requests for comment by the Washington Post, but a spokeswoman told the UK’s Guardian that “the report is seriously untrue.”
+“Our data are all public data on the internet. We do not collect data. This is just a data integration. Our business model and partners are our trade secrets. There is no database of 2 million people,” said the Zhenua rep surnamed Sun, who identified herself as head of business.
+“We are a private company,” she said, denying any links to the Chinese government or military. “Our customers are research organizations and business groups.”
+The Chinese Ministry of Defense did not respond to requests for comment.   	

@@ -1,0 +1,114 @@
+    On Tuesday, voters will cast the last ballots in the Nov. 3 races for president, the U.S. House of Representatives and, in 34 states, the U.S. Senate. But in 11 states, voters will also pick their next governor. It’s more common to hold governors’ races during midterm elections, so the few gubernatorial contests held in presidential election years sometimes get overlooked while the spotlight is trained on races for federal office. But these elections will affect states’ policies and other important political matters, including the congressional and state legislative redistricting that will take place after the 2020 census.
+What the deluge of final polls can tell us | FiveThirtyEight Politics Podcast This year, though, it’s possible that these contests are being overlooked in part because only a handful look competitive, and in most cases voters are expected to reelect sitting governors rather than usher in a new state executive. Still, in some contests, the lack of competitiveness is fascinating because the likely winner comes from the party that’s weaker in that state’s federal elections. Plus, a few other races have popped up on the national radar despite their potential for lopsided outcomes.
+[Live Updates: We’re Tracking The Vote And Voting Problems]
+As you can see in the table below, election handicappers’ ratings suggest that the incumbent governor — or party — looks likely or almost certain to hold onto power in nine states, while two other races are closer and could see the out-of-power party flip control.
+Few gubernatorial races look competitive
+States electing governors on the Nov. 3, 2020, by median race rating and partisan lean of the state
+State
+Democrat
+Republican
+Race Rating*
+Partisan lean
+ND
+Shelley Lenz
+Doug Burgumi
+Safe R
+R+34
+WV
+Ben Salango
+Jim Justicei
+Safe R
+R+33
+UT
+Chris Peterson
+Spencer Cox
+Safe R
+R+30
+MO
+Nicole Galloway
+Mike Parsoni
+Lean R
+R+21
+MT
+Mike Cooney
+Greg Gianforte
+Toss-up
+R+18
+IN
+Woody Myers
+Eric Holcombi
+Safe R
+R+17
+NC
+Roy Cooperi
+Dan Forest
+Likely D
+R+4
+NH
+Dan Feltes
+Chris Sununui
+Likely R
+R+1
+DE
+John Carneyi
+Julianne Murray
+Safe D
+D+12
+WA
+Jay Insleei
+Loren Culp
+Safe D
+D+15
+VT
+David Zuckerman
+Phil Scotti
+Safe R
+D+24
+The most competitive race looks to be Montana, which is the only one that election handicappers label a toss-up. It’s an open-seat contest because Democratic Gov. Steve Bullock can’t serve again due to term limits (he’s running for Senate instead), so Republican Rep. Greg Gianforte and Democratic Lt. Gov. Mike Cooney are each seeking to take over the governor’s mansion in Helena. Gianforte lost a previous attempt at this seat — failing to unseat Bullock in 2016 by 4 percentage points, 50 percent to 46 percent — and then won a 2017 special election to the House, where he’s been serving since. For his part, Cooney became lieutenant governor in 2015 because of a vacancy and then was elected as Bullock’s running mate in 2016.
+It appears that Gianforte may have a slight edge in his second bid for the office, as he leads by an average of about 5 points in October polling of this contest.
+The GOP has an edge in Montana’s governor race
+Montana gubernatorial candidates’ margin in polls conducted in October 2020
+Pollster
+Date
+Gianforte (R)
+Cooney(D)
+Margin
+Montana State Univ. Billings
+Oct. 19-24
+45%
+45%
+EVEN
+Siena College/NYT Upshot
+Oct. 18-20
+48
+44
+R+4
+RMG Research
+Oct. 15-18
+48
+45
+R+3
+Strategies 360
+Oct. 15-20
+48
+41
+R+7
+Emerson College
+Oct. 5-7
+54
+41
+R+12
+October average
+49
+43
+R+5
+Now, a 5-point lead is far from safe, but Gianforte also has a notable fundraising — and self-funding — advantage in the contest, which may be boosting him as well. As of late October, Gianforte had raised $11.2 million, $7.6 million of which came from his own pocket. By comparison, Cooney had raised only $3.5 million through late October, with no self-funding.
+Still, Cooney’s not out of it, thanks to Montana’s recent preference for Democrats in gubernatorial races — Democrats have held the office for 16 years — and an openness to splitting tickets to back down-ballot Democrats while voting for a Republican presidential candidate. That’s why the state has relatively competitive contests for governor, Senate and House even though President Trump is likely to carry Montana in the national race.
+Beyond Montana, the only other gubernatorial race that handicappers view as pretty competitive is in Missouri, where Republican Gov. Mike Parson has an edge over Democratic State Auditor Nicole Galloway, who is the lone Democrat to hold statewide elected office in Missouri. Although Parson is the incumbent, he’s seeking his first full term — he took over the governorship in 2018 after then-Gov. Eric Greitens resigned amid a scandal.
+We don’t have quite as much recent polling in Missouri, but Parson appears to have a lead — it’s just a question of how big. The last nonpartisan pollster to look at the race was St. Louis University/YouGov, which found Parson up 6 points, 50 percent to 44 percent, in early October. That isn’t too different from what we’ve seen in surveys by Republican pollsters such as Cygnal and Remington Research, which this month found Parson ahead by about 7 points and 8 points, respectively. The point is, the race could be close enough that Galloway might surprise, but Parson will be favored heading into Election Day. Galloway’s hopes may rest on the public’s mixed views of Parson’s handling of the pandemic: The SLU/YouGov survey found that 48 percent approved of how he’s dealt with COVID-19, while 48 percent disapproved.
+Just two other races aren’t viewed as safe for one party or the other in 2020, but both look likely to reelect their incumbent governors. In New Hampshire, most polling this month has shown Republican Gov. Chris Sununu with a double-digit lead — sometimes more than 20 points — over Democratic state Sen. Dan Feltes, and Sununu enjoys a very high approval rating, in part because many New Hampshire voters have positive views of his handling of COVID-19. And Sununu’s clear advantage is notable because it belies New Hampshire status as a purplish state that has recently been pretty close in presidential elections.
+In North Carolina, meanwhile, Democratic Gov. Roy Cooper looks favored to win reelection despite North Carolina’s slight Republican tilt. In 2016, Cooper managed to defeat an unpopular incumbent governor by the skin of his teeth, even as Trump narrowly carried the state. But this time around, he looks to be in better shape against Republican Lt. Gov. Dan Forest. (North Carolina elects its governor and lieutenant governor separately, occasionally leading to members of different parties serving at the same time.) Although polls don’t give Cooper as big a lead as the one Sununu enjoys, recent surveys have regularly given Cooper an edge in the high single digits or low double digits. Here, too, an incumbent’s COVID-19 response may be affecting the race and giving Cooper a boost. A WRAL/SurveyUSA poll released on Thursday found that 57 percent of North Carolinians approved of Cooper’s handling of the coronavirus.
+The seven remaining contests are all viewed as safe for one party or the other, but there are a few interesting tidbits worth mentioning. In Utah, an open-seat contest to succeed Republican Gov. Gary Herbert may hold the title of the friendliest election in 2020. Republican Lt. Gov. Spencer Cox and Democratic nominee Chris Peterson recently ran a series of ads in which they appeared together to call on Utahns to promote civility and put aside partisanship to accept election outcomes. Now, the fact that the race isn’t close — Cox has led by at least 24 points in every poll — is certainly a contributing factor behind the cordiality on display in Utah, but the ads still garnered a lot of attention in a time of sharp political polarization.
+Meanwhile, Vermont’s contest demonstrates how gubernatorial elections don’t always operate like federal elections, because incumbent Republican Gov. Phil Scott appears on track to handily defeat Democratic Lt. Gov. David Zuckerman1 in a state that Joe Biden will probably carry by more than 30 points. While governors’ contests have become more closely aligned with national politics in recent years, states like Vermont (and Montana, for that matter) show that there can still be some separation between state and national politics.
+So when you’re reading up on the races for president and Congress on Nov. 3, remember that these gubernatorial contests are on the ballot, too. While only a handful appear to be relatively competitive, even some of the uncompetitive ones have quirks to follow as the results come in.
+What election stories need to get more coverage | FiveThirtyEight Politics Podcast   	

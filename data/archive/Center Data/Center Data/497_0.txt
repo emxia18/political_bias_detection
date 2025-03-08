@@ -1,0 +1,87 @@
+    Welcome to FiveThirtyEight’s weekly politics chat. The transcript below has been lightly edited. sarahf (Sarah Frostenson, politics editor): This is the first debate of 2020 and the last debate before the voting starts in Iowa in less than three weeks. There are six candidates (the smallest debate stage yet), and we’ve finally published our primary forecast (!!!), which shows the field (especially in Iowa) is pretty wide open.
+So how are you thinking about tonight’s debate? Do you think it has the potential to really shake things up?
+clare.malone (Clare Malone, senior political writer): I think the big story on Monday — and potentially the big story of the debate — is what’s going on with the rivalry between Sens. Elizabeth Warren and Bernie Sanders. First, there is the Sanders campaign’s talking points that reportedly had volunteers paint Warren as “the candidate of the elite.” And then a story leaked on Monday that’s pretty damn unflattering to Sanders, claiming he told Warren he didn’t think a woman could win the presidency. So … I would say there’s some jostling on the progressive end of the spectrum that could play out tonight!
+ameliatd (Amelia Thomson-DeVeaux, senior writer): Definitely. One thing I’ll be watching for is whether some of the tacit alliances we’ve seen between the candidates start to break down. That story really did not reflect well on Sanders. On the other hand, it’s generally risky for women to go on the offensive in debates like these, so it might be a little tricky for Warren to turn that to her advantage.
+Biden, Sanders neck and neck In Iowa natesilver (Nate Silver, editor in chief): Yeah, it seems like the theme of this debate is somewhat inevitably going to be SANDERS-WARREN BATTLE. Unless they really do decide to turn the other cheek.
+clare.malone: I mean, I do think the Warren people have been savvier about dropping opposition research like this.
+natesilver: That’s a pretty serious oppo drop.
+clare.malone: Sanders’s defense is generally “the mainstream media is stirring up conflict.”
+Which is true, partially, in the sense that the media is the one publishing this stuff, but there are, indeed, real tensions between those two campaigns!
+natesilver: Like, 95 percent of these oppo drops are dumb as fuck, concerning things that ordinarily voters couldn’t possibly care about. But this would be a big deal if it’s somehow confirmed or if Warren repeats the accusation herself.
+sarahf: Yeah, it’s amazing how fast the news cycle moves, I had thought the situation with Iran would be the dominant thread of conversation tonight, but agree that between the Selzer & Co. Iowa poll that put Sanders in first in Iowa, and now the breakdown of Warren and Sanders’s truce to not attack each other, that will be a big part of tonight’s debate. And going in, it doesn’t seem great for Sanders …
+ameliatd: Warren could really benefit from getting some more support from lefty Democrats who might be undecided or mostly seem to be sticking with Sanders. But if this accusation comes off as a cheap shot from Warren, I think that could hurt her. Or at least, not endear her further to those on the left.
+clare.malone: Sanders’s support is pretty sticky, though, so it’s hard for me to see her winning over any of his supporters. Honestly, at this point, I think she has to worry about losing her supporters to Sanders or Pete Buttigieg — or even Joe Biden.
+natesilver: Part of the dynamic is that Sanders hasn’t really been considered a front-runner. But now the media is covering him like one, even though it’s not really clear how much has actually changed in his candidacy. (If you look at the odds in our primary model — where we ran older forecasts retroactively before we launched — Sanders’s chances of winning the majority of pledged delegates have been pretty steady since November.)
+sarahf: So let’s say tonight is the Sanders “wine cave” edition, where he’s at the center of attacks like Buttigieg was in the December debate. That debate seemed to have actually dampened some enthusiasm for Buttigieg — for instance, he fell pretty substantially in that Selzer poll from where he was in November. Do we see Sanders as the candidate tonight who has the most at stake? What about Biden? He is after all, the front-runner in our model even if he’s not the clear favorite to win; i.e., he’s still an underdog relative to the rest of the field.
+natesilver: So on the one hand, I agree that Sanders’s support is likely to be pretty sticky, as Clare puts it. There’s evidence from polls that his supporters are the most firmly committed to any one candidate. But on the other hand, he hasn’t really gotten the same front-runner-type scrutiny that Warren DID get at some points this fall. So whether he holds up, once that level of scrutiny is applied, is very much up in the air.
+ameliatd: And it’s not a low-stakes debate for Warren either, because she’s been actively trying to revitalize her campaign. When I was in Iowa on a reporting trip a few weeks ago, she was kind of trying to hit the “reset” button by hammering her core message on corruption and the economy. And of course, she’s now campaigning with Julián Castro.
+clare.malone: I mean, we’ll just have to wait and see what the attacks are. I’m not entirely sure Warren, for instance, would go for “Bernie is sexist” on stage. That just doesn’t seem like her temperament. I would expect more of an attack on Sanders from Warren to be like, “his plans are implausible and therefore, bad for the general election.” But then again, he could also push back (as he’s been doing on the campaign trail), saying that HE is actually the most electable in a general. And there’s some truth to it, especially in comparison to Warren. Our polling with Ipsos shows the same thing — voters generally rate Sanders next after Biden in terms of his ability to defeat Trump.
+Also, Sanders benefits from everyone kinda knowing what his thing is — socialism, baby! — which takes some of the sting out of “he’s too far out there!!” attacks. The brand is strong, as the kids say.
+sarahf: Right, but to Amelia’s point, tonight could be a big night for Warren. She was only 3 points behind Sanders in that Selzer poll, which is a good sign for her considering her national numbers had dipped in late November and through December. And you can already see the slightest of upticks already in our national polling average:
+geoffrey.skelley (Geoffrey Skelley, elections analyst): Yeah, that Selzer poll had Sanders in the lead in Iowa as we’ve discussed, but then that Monmouth poll out on Monday showed Biden in the lead with 24 percent in Iowa and Sanders in second at 18 percent, suggesting that Iowa is very wide open and very difficult to predict.
+clare.malone: Like the state itself!
+sarahf: Right, Biden is either in first or fourth, depending on which poll you look at.
+geoffrey.skelley: So far, the debates haven’t seemed to have affected the polls all that much, at least not since Sen. Kamala Harris’s surge after the June debate.
+The first Democratic debate shifted polls the most
+Average change* in national polls and the candidates who moved the most after the first four Democratic primary debates
+Debate
+Avg. Change
+Biggest gainer
+Biggest loser
+June 26-27
++/- 2.4
+Harris
++8.3
+Biden
+-6.5
+July 30-31
+0.9
+Warren
++3.0
+Harris
+-3.0
+Sept. 12
+1.1
+Warren
++4.4
+Sanders
+-2.0
+Oct. 15
+1.0
+Buttigieg
++1.6
+Warren
+-3.5
+Although I haven’t run the numbers the same way for the November and December debates, one look at the polls suggests there wasn’t a dramatic shakeup after those events, either. Now, tonight’s debate could be different since there are fewer candidates and voting is right around the corner. But then again, maybe not.
+clare.malone: My spidey sense is that this debate will matter, especially to Iowans. These people are tuned in to a deranged degree!
+natesilver: And polls also find that a high proportion of Iowans haven’t yet made their final decision.
+clare.malone: Right.
+sarahf: So if many Iowans haven’t made their final decision … how many do you think are actively considering Amy Klobuchar or Tom Steyer?
+Klobuchar didn’t do as well in that Selzer poll as I thought she might, given how respondents in our poll with Ipsos rated her December debate performance. Granted, a lot of time has passed since Dec. 19, but there also haven’t been that many polls.
+And then Steyer had a kind of weird surge in South Carolina and Nevada? It’s too soon to really make sense of what’s happening there (although he has spent a ton of money on TV ads).
+natesilver: Klobuchar is actually in a pretty weird place. She’s at 6.6 percent in our Iowa polling average, but usually candidates either rise up to at least ~15 percent in Iowa — which matters, given how the caucus process itself works — or fall back into the low single digits.
+clare.malone: The Steyer stuff is interesting in the sense that yes, he’s doing well in polls, probably because of advertising in those two states that have fewer ads in general than, say, Iowa or New Hampshire. But other candidates are going to start to get into that media-market scrum. Let’s see how much those numbers stick for him.
+What I will say, though, is that the ads themselves cannily talk about the economy, not impeachment or climate change, subjects with which Steyer is more closely associated.
+ameliatd: Steyer has been kind of defensive, too, about the fact that he made the debate at all — the implication being that he’s only there because he spent a ton of money on ads. That makes him a potential target, particularly for someone like Sanders or Warren. But attacking him also runs the risk of making him look like a more serious threat, so it’s somewhat complicated.
+clare.malone: I think he won’t really be a big factor, tbh.
+natesilver: I just don’t think Steyer is very interesting.
+ameliatd: Right, maybe the other candidates won’t think it’s worth their time to question why he’s even there.
+natesilver: So long as he’s at 3 percent in Iowa and New Hampshire, I don’t really care where he is in Nevada and South Carolina.
+clare.malone: I mean, I don’t think he’s half bad in debates! I just think the scrum will go a little more the Sanders/Warren and the Buttigieg/Klobuchar.
+perry (Perry Bacon Jr., senior writer): We touched on this a bit earlier, but Biden is currently winning the race for the nomination. And I think, as a result, you are seeing blunter criticism of him. Buttigieg and Sanders have both taken Biden to task for his vote for the Iraq War, and Sanders has also criticized Biden’s record on issues of racial justice.
+I’m not sure his rivals will attack Biden on Tuesday, but that’s the thing I’m watching most closely: Does anyone decide this is the last real chance to take on the person mostly likely to win? I have been confused by how much Warren’s allies are attacking Buttigieg, and now it seems like Warren is attacking Sanders — but Biden is winning!
+It feels like 2016 a bit — Christie attacking Rubio instead of Trump — what is the point?
+natesilver: If somehow Biden gets through the debate, and all the focus is on Sanders vs. Warren, Buttigieg, etc. — that seems like a very fortunate outcome for the former vice president.
+ameliatd: Yes, Biden clearly benefited from being able to float above the fray in the December debate. And the other candidates mostly let him do that, which was a little weird.
+natesilver: Biden does have a tendency to cause trouble for himself, of course.
+It’s also probably worth noting that his relatively smooth debate in December has been followed up by quite a few endorsements, etc. Party elites seem to have fewer concerns than they once did about his steadiness as a candidate.
+perry: Harris was kind of limited in taking on Biden, in my view, since she will be high on the VP list. But I don’t think Biden is going to pick Buttigieg, Warren or Sanders for VP, so they have very little incentive to hold back. Buttigieg, in particular, has been very good at attacking people — it would be interesting to see if one was the one to push the Iraq issue, because Biden seems, at times, unwilling to concede he voted for the war.
+clare.malone: Yeah, I gotta say, that whole thing is really weird.
+John Kerry, a Biden surrogate, was trying to say that other candidates were misrepresenting his record, but it’s clear as day that Biden voted for the Iraq War. If you want to complicate the narrative and say it was a mistake, and you were misled — fine. But that whole talking point is weak sauce, in my opinion.
+sarahf: OK, this is our last debate before the voting starts in Iowa, and as I said at the outset of the chat — it’s pretty much a four-way race with Biden, Sanders, Warren and Buttigieg all projected to get some delegates. Biden is in the lead in our forecast, but as we’ve said in our chat, a lot of Iowans are still on the fence. What will you be keeping a close eye on tonight to see if it moves the needle at all?
+perry: Biden seems poised to win the nomination — perhaps even Iowa. I’ll be watching to see whether any of the other top three really take him on — and if they do, on what issues?
+ameliatd: I will be interested to see, as Perry mentioned, if Biden’s Iraq war vote — and his strange unwillingness to admit to it — gets turned against him, or if he can turn the general foreign policy conversation/discussion of what’s happening with Iran in his favor. Because in general, that’s an issue where he has a clear advantage over the other candidates.
+clare.malone: I mean, it’s trite, but I’ll be curious to see what Warren and Sanders do on stage, given the conflict they’ve had. And I’ll be curious to see if Sanders, in particular, challenges Biden on a general-election electability front.
+natesilver: Repeating myself a bit, but it feels to me like Sanders is liable to play a central role in this debate with perceptions that he’s now a front-runner, and those sorts of debates tend to be pretty high stakes.
+ameliatd: Basically, tonight comes down to who’s taking the gloves off, and who are they going after?
+FiveThirtyEight Politics Podcast: A 4-way pileup In Iowa    
