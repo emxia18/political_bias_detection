@@ -1,6 +1,41 @@
-import kagglehub
+import os
+import pandas as pd
+import re
 
-download_location = "political_bias_detection/data"
-path = kagglehub.dataset_download("surajkarakulath/labelled-corpus-political-bias-hugging-face", path=download_location)
+base_path = "data/archive" 
 
-print("Path to dataset files:", path)
+folder_labels = {
+    "Center Data": "center",
+    "Left Data": "left",
+    "Right Data": "right"
+}
+
+data = []
+
+def clean_text_func(text):
+    text = re.sub(r"[^a-zA-Z0-9\s\.,!?;:'\"()-]", "", text)
+    text = re.sub(r"\s+", " ", text).strip()
+    return text
+
+for folder, label in folder_labels.items():
+    folder_path = os.path.join(base_path, folder)
+    
+    if os.path.exists(folder_path):
+        text_files = [f for f in os.listdir(folder_path) if f.endswith(".txt")][:500]
+        
+        for filename in text_files:
+            file_path = os.path.join(folder_path, filename)
+            
+            with open(file_path, "r", encoding="utf-8") as file:
+                text = file.read().strip()
+                text = clean_text_func(text)
+                data.append([text, label])
+
+df = pd.DataFrame(data, columns=["Text", "Label"])
+
+csv_output = "data/political_bias_data.csv"
+df.to_csv(csv_output, index=False, encoding="utf-8")
+
+print(f"CSV file saved as: {csv_output}")
+
+
