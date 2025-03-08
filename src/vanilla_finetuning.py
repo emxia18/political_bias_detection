@@ -21,5 +21,3 @@ val_dataset = BiasDataset(val_encoded)
 
 trainer = BiasTrainer(train_dataset, val_dataset)
 trainer.train()
-
-trainer.evaluate()
