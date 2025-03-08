@@ -4,6 +4,9 @@ from transformers import DistilBertTokenizer, DistilBertForSequenceClassificatio
 from captum.attr import IntegratedGradients
 import numpy as np
 from collections import Counter
+from collections import Counter
+from captum.attr import IntegratedGradients
+from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
 class BiasTrainer:
     def __init__(self, train_dataset, val_dataset, tokenizer_model="distilbert-base-uncased", model_name="distilbert-base-uncased", num_labels=3):
@@ -36,29 +39,51 @@ class BiasTrainer:
         )
 
         trainer.train()
-        # self.analyze_word_importance()
 
-    def analyze_word_importance(self):
+    def push_to_huggingface(self, repo_name, organization=None):
+        self.model.push_to_hub(repo_name, organization=organization)
+        self.tokenizer.push_to_hub(repo_name, organization=organization)
+        print(f"Model and tokenizer pushed to Hugging Face Hub at: https://huggingface.co/{repo_name}")
+
+class BiasEvaluator:
+    def __init__(self, model_name, device=None):
+        self.device = device if device else torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        self.model = AutoModelForSequenceClassification.from_pretrained(model_name).to(self.device)
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
         self.model.eval()
-        integrated_gradients = IntegratedGradients(self.model)
+
+    def analyze_word_importance(self, texts):
+        integrated_gradients = IntegratedGradients(self._forward_fn)
         word_importance = Counter()
         total_word_count = Counter()
 
-        for sample in self.val_dataset:
-            input_ids = sample["input_ids"].unsqueeze(0).to(dtype=torch.long)  # Ensure LongTensor
-            attention_mask = sample["attention_mask"].unsqueeze(0).to(dtype=torch.long)  # Ensure LongTensor
-            baseline = torch.zeros_like(input_ids).to(dtype=torch.long)  # Ensure baseline is also LongTensor
+        count = 0
 
-            attributions, _ = integrated_gradients.attribute(
-                inputs=input_ids, 
-                baselines=baseline, 
-                target=None, 
-                additional_forward_args=(attention_mask,),  # Pass attention mask
-                return_convergence_delta=True
-            )
+        for text in texts:
+            if (count % 100 == 0):
+                print(f"on count {count}")
             
+            count += 1
+
+            inputs = self.tokenizer(text, return_tensors="pt", padding=True, truncation=True, max_length=128)
+            input_ids = inputs["input_ids"].to(self.device, dtype=torch.long)
+            attention_mask = inputs["attention_mask"].to(self.device, dtype=torch.long)
+
+            embeddings = self.model.get_input_embeddings()(input_ids).detach().to(self.device)
+            embeddings.requires_grad_()
+            
+            baseline = torch.zeros_like(embeddings).to(self.device)
+
+            attributions = integrated_gradients.attribute(
+                inputs=embeddings,
+                baselines=baseline,
+                target=0,
+                additional_forward_args=(attention_mask,),
+                return_convergence_delta=False
+            )
+
             tokens = self.tokenizer.convert_ids_to_tokens(input_ids[0])
-            attributions = attributions.sum(dim=-1).squeeze(0).detach().numpy()
+            attributions = attributions.sum(dim=-1).squeeze(0).detach().cpu().numpy()
             attributions = np.abs(attributions)
             attributions /= attributions.sum()
 
@@ -70,6 +95,8 @@ class BiasTrainer:
         avg_word_importance = {word: word_importance[word] / total_word_count[word] for word in word_importance}
         sorted_importance = sorted(avg_word_importance.items(), key=lambda x: x[1], reverse=True)
 
+        print("sorted importance", sorted_importance[0])
+
         importance_df = pd.DataFrame(sorted_importance, columns=["Word", "Importance"])
         importance_df.to_csv("word_importance.csv", index=False)
 
@@ -77,8 +104,8 @@ class BiasTrainer:
         print(importance_df.head(20))
         print("\nWord importance scores saved to 'word_importance.csv'")
 
+        return importance_df
 
-    def push_to_huggingface(self, repo_name, organization=None):
-        self.model.push_to_hub(repo_name, organization=organization)
-        self.tokenizer.push_to_hub(repo_name, organization=organization)
-        print(f"Model and tokenizer pushed to Hugging Face Hub at: https://huggingface.co/{repo_name}")
+    def _forward_fn(self, embeddings, attention_mask):
+        outputs = self.model(inputs_embeds=embeddings, attention_mask=attention_mask)
+        return outputs.logits
