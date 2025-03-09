@@ -114,37 +114,49 @@ class BiasEvaluator:
         outputs = self.model(inputs_embeds=embeddings, attention_mask=attention_mask)
         return outputs.logits
 
-    def evaluate_model(self, texts, true_labels):
+    def evaluate_model(self, texts, true_labels, label_mapping):
         self.model.eval()
+        
         predictions = []
+        with torch.no_grad():
+            for text in texts:
+                inputs = self.tokenizer(text, return_tensors="pt", padding=True, truncation=True, max_length=128)
+                input_ids = inputs["input_ids"].to(self.device)
+                attention_mask = inputs["attention_mask"].to(self.device)
 
-        label_map = {"left": 0, "center": 1, "right": 2}
-
-        true_labels = [label_map[label] for label in true_labels]
-
-        for text in texts:
-            inputs = self.tokenizer(text, return_tensors="pt", padding=True, truncation=True, max_length=128).to(self.device)
-
-            with torch.no_grad():
-                outputs = self.model(**inputs)
-                logits = outputs.logits
-                probs = F.softmax(logits, dim=-1)
-                predicted_label = torch.argmax(probs, dim=-1).cpu().item()
+                logits = self.model(input_ids, attention_mask=attention_mask).logits
+                probabilities = F.softmax(logits, dim=-1)
+                predicted_label = torch.argmax(probabilities, axis=1).cpu().item()
                 predictions.append(predicted_label)
 
+        reverse_label_map = {v: k for k, v in label_mapping.items()}
+        predicted_biases = [reverse_label_map[label] for label in predictions]
+        true_biases = [reverse_label_map[label] for label in true_labels]
+
+        results_df = pd.DataFrame({
+            "Actual Bias": true_biases,
+            "Predicted Bias": predicted_biases
+        })
+
+        results_df.to_csv("evaluation_results.csv", index=False)
+
         accuracy = accuracy_score(true_labels, predictions)
-        print(f"Model Accuracy: {accuracy:.4f}")
+
+        print(results_df.head())
+        print("\nEvaluation results saved to 'evaluation_results.csv'")
+        print(f"\nRaw Accuracy Score: {accuracy:.4f}")
 
         print("\nClassification Report:")
-        print(classification_report(true_labels, predictions, target_names=["Left", "Center", "Right"]))
+        print(classification_report(true_labels, predictions, target_names=list(label_mapping.keys())))
 
-        cm = confusion_matrix(true_labels, predictions)
-        plt.figure(figsize=(6, 5))
-        sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", xticklabels=["Left", "Center", "Right"], yticklabels=["Left", "Center", "Right"])
+        conf_matrix = confusion_matrix(true_labels, predictions)
+        
+        plt.figure(figsize=(8, 6))
+        sns.heatmap(conf_matrix, annot=True, fmt="d", cmap="Blues",
+                    xticklabels=list(label_mapping.keys()), yticklabels=list(label_mapping.keys()))
         plt.xlabel("Predicted")
         plt.ylabel("Actual")
         plt.title("Confusion Matrix")
         plt.show()
 
         return accuracy
-
