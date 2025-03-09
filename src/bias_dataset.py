@@ -8,10 +8,11 @@ from torch.utils.data import Dataset, DataLoader
 BIAS_MAP_DEFAULT = {'left': 'left', 'center': 'center', 'right': 'right'}
 
 class DataPreprocessor:
-    def __init__(self, tokenizer_model="distilbert-base-uncased", max_len=128):
+    def __init__(self, tokenizer_model="distilbert-base-uncased", max_len=128, attention_type="NONE"):
 
         self.tokenizer = AutoTokenizer.from_pretrained(tokenizer_model)
         self.max_len = max_len
+        self.attention_type = attention_type
 
     def clean_text(self, text):
         """Cleans text by removing unwanted characters."""
@@ -50,7 +51,12 @@ class DataPreprocessor:
             texts, truncation=True, padding="max_length", max_length=self.max_len, return_tensors="pt"
         )
 
-        encoded_data = list(zip(encodings["input_ids"], encodings["attention_mask"], numerical_labels))
+        attention_bias = torch.ones_like(encodings["input_ids"], dtype=torch.float)
+
+        if (self.attention_type == "TITLE"):
+            attention_bias[:, 20:] = 0.5
+
+        encoded_data = list(zip(encodings["input_ids"], encodings["attention_mask"], numerical_labels, attention_bias))
         return encoded_data, label_mapping
 
 class BiasDataset(Dataset):
@@ -66,4 +72,5 @@ class BiasDataset(Dataset):
             "input_ids": input_ids,
             "attention_mask": attention_mask,
             "labels": torch.tensor(label, dtype=torch.long),
+            "attention_bias": attention_bias,
         }
