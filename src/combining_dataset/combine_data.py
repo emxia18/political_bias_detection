@@ -10,7 +10,9 @@ santana_data = preprocessor.load_data('data/mayobanexsantana/political-bias/vers
                                       title_name="Title", text_name="Text", bias_name="Bias", bias_map=santana_map)
 pol_bias_data = preprocessor.load_data("data/political_bias_data_title.csv", 
                                       title_name="Title", text_name="Text", bias_name="Label")
+print(len(allsides_data), len(santana_data), len(pol_bias_data))
 full_data = allsides_data + santana_data + pol_bias_data
+print(len(full_data))
 df = pd.DataFrame(full_data, columns = ['title', 'text', 'label'])
 
 df = df[df['text'].apply(len) >= 100]
@@ -26,5 +28,5 @@ print(len(df))
 
 pd.set_option('display.max_colwidth', None)
 
-print(df.iloc[0]['text'])
+# print(df.iloc[0]['text'])
 df.to_csv('src/combined_data.csv', index=False)
