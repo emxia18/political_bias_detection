@@ -12,7 +12,6 @@ from captum.attr import IntegratedGradients
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
-
 class BiasTrainer:
     def __init__(self, train_dataset, val_dataset, tokenizer_model="distilbert-base-uncased", model_name="distilbert-base-uncased", num_labels=3):
         self.model = DistilBertForSequenceClassification.from_pretrained(model_name, num_labels=num_labels)
@@ -27,13 +26,16 @@ class BiasTrainer:
             num_train_epochs=epochs,
             per_device_train_batch_size=batch_size,
             per_device_eval_batch_size=batch_size,
-            warmup_steps=500,
-            weight_decay=0.01,
+            learning_rate=3e-5,
+            warmup_steps=1000,
+            weight_decay=0.07,
             logging_steps=10,
             evaluation_strategy="epoch",
             save_strategy="epoch",
             save_total_limit=1,
             load_best_model_at_end=False,
+            max_grad_norm=0.5,
+            # learning_rate_scheduler_type="cosine",
             report_to="wandb",
             run_name=wandb.run.name
         )

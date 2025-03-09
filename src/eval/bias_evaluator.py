@@ -118,6 +118,7 @@ class BiasEvaluator:
         plt.xlabel("Predicted")
         plt.ylabel("Actual")
         plt.title("Confusion Matrix")
+        plt.savefig("src/connfusion_matrix.png")
         plt.show()
 
         return accuracy

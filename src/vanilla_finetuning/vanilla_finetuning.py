@@ -27,4 +27,4 @@ val_dataset = BiasDataset(val_encoded)
 trainer = BiasTrainer(train_dataset, val_dataset)
 trainer.train()
 
-trainer.push_to_huggingface("emxia18/bias-vanilla-1")
+trainer.push_to_huggingface("emxia18/bias-vanilla-2")
