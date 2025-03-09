@@ -8,7 +8,7 @@ from bias_dataset import DataPreprocessor
 from sklearn.model_selection import train_test_split
 import pandas as pd
 
-MODEL_NAME = "emxia18/bias-vanilla-1"
+MODEL_NAME = "emxia18/bias-title"
 
 evaluator = BiasEvaluator(MODEL_NAME)
 preprocessor = DataPreprocessor()

@@ -63,11 +63,11 @@ class BiasEvaluator:
             print("No words found for importance analysis.")
 
         importance_df = pd.DataFrame(sorted_importance, columns=["Word", "Importance"])
-        importance_df.to_csv("word_importance_big.csv", index=False)
+        importance_df.to_csv("word_importance_title.csv", index=False)
 
         print("\nTop Important Words:")
         print(importance_df.head(20))
-        print("\nWord importance scores saved to 'word_importance_big.csv'")
+        print("\nWord importance scores saved to 'word_importance_title.csv'")
 
         return importance_df
 
@@ -99,12 +99,12 @@ class BiasEvaluator:
             "Predicted Bias": predicted_biases
         })
 
-        results_df.to_csv("evaluation_results.csv", index=False)
+        results_df.to_csv("title_evaluation_results.csv", index=False)
 
         accuracy = accuracy_score(true_labels, predictions)
 
         print(results_df.head())
-        print("\nEvaluation results saved to 'evaluation_results.csv'")
+        print("\nEvaluation results saved to 'title_evaluation_results.csv'")
         print(f"\nRaw Accuracy Score: {accuracy:.4f}")
 
         print("\nClassification Report:")
@@ -118,7 +118,7 @@ class BiasEvaluator:
         plt.xlabel("Predicted")
         plt.ylabel("Actual")
         plt.title("Confusion Matrix")
-        plt.savefig("src/connfusion_matrix.png")
+        plt.savefig("src/title_confusion_matrix.png")
         plt.show()
 
         return accuracy

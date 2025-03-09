@@ -11,6 +11,7 @@ from transformers import DistilBertTokenizer, DistilBertForSequenceClassificatio
 from captum.attr import IntegratedGradients
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+from biased_bert import BiasedDistilBERT
 
 class BiasTitleTrainer:
     def __init__(self, train_dataset, val_dataset, tokenizer_model="distilbert-base-uncased", model_name="distilbert-base-uncased", num_labels=3):
@@ -51,3 +52,8 @@ class BiasTitleTrainer:
         )
 
         trainer.train()
+    
+    def push_to_huggingface(self, repo_name, organization=None):
+        self.model.push_to_hub(repo_name, organization=organization)
+        self.tokenizer.push_to_hub(repo_name, organization=organization)
+        print(f"Model and tokenizer pushed to Hugging Face Hub at: https://huggingface.co/{repo_name}")

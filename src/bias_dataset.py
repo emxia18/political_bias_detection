@@ -67,7 +67,7 @@ class BiasDataset(Dataset):
         return len(self.encoded_data)
 
     def __getitem__(self, idx):
-        input_ids, attention_mask, label = self.encoded_data[idx]
+        input_ids, attention_mask, label, attention_bias = self.encoded_data[idx]
         return {
             "input_ids": input_ids,
             "attention_mask": attention_mask,
