@@ -1,4 +1,4 @@
-from bias_trainer import BiasEvaluator
+from bias_evaluator import BiasEvaluator
 from bias_dataset import DataPreprocessor
 from sklearn.model_selection import train_test_split
 import pandas as pd

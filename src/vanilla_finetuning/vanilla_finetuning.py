@@ -5,14 +5,6 @@ import pandas as pd
 
 preprocessor = DataPreprocessor()
 
-# allsides_data = preprocessor.load_data('data/allsides_balanced_news_headlines-texts.csv')
-# santana_map = {'left': 'left', 'lean left': 'left', 'center': 'center', 'lean right': 'right', 'right': 'right'}
-# santana_data = preprocessor.load_data('data/mayobanexsantana/political-bias/versions/1/Political_Bias.csv', 
-#                                       title_name="Title", text_name="Text", bias_name="Bias", bias_map=santana_map)
-# pol_bias_data = preprocessor.load_data("data/political_bias_data_title.csv", 
-#                                       title_name="Title", text_name="Text", bias_name="Label")
-# full_data = allsides_data + santana_data + pol_bias_data
-
 df = pd.read_csv('src/combined_data.csv')
 full_data = df.values.tolist()
 
