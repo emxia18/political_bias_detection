@@ -1,7 +1,15 @@
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 from bias_dataset import DataPreprocessor, BiasDataset
 from bias_trainer import BiasTrainer
 from sklearn.model_selection import train_test_split
 import pandas as pd
+import wandb
+
+wandb.init(project="political-bias-detection")
 
 preprocessor = DataPreprocessor()
 
@@ -19,4 +27,4 @@ val_dataset = BiasDataset(val_encoded)
 trainer = BiasTrainer(train_dataset, val_dataset)
 trainer.train()
 
-trainer.push_to_huggingface("emxia18/bias-cleaned-data-vanilla")
+trainer.push_to_huggingface("emxia18/bias-vanilla-1")

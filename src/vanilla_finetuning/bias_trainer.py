@@ -4,6 +4,7 @@ import numpy as np
 import torch.nn.functional as F
 import seaborn as sns
 import matplotlib.pyplot as plt
+import wandb
 
 from collections import Counter
 from transformers import DistilBertTokenizer, DistilBertForSequenceClassification, Trainer, TrainingArguments
@@ -33,6 +34,8 @@ class BiasTrainer:
             save_strategy="epoch",
             save_total_limit=1,
             load_best_model_at_end=False,
+            report_to="wandb",
+            run_name=wandb.run.name
         )
 
         trainer = Trainer(
