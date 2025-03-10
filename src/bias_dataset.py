@@ -48,7 +48,6 @@ class DataPreprocessor:
         # label_mapping = {label: idx for idx, label in enumerate(set(labels))}
         label_mapping = LABEL_MAPPING
         numerical_labels = [label_mapping[label] for label in labels]
-        print(label_mapping, numerical_labels)
 
         encodings = self.tokenizer(
             texts, truncation=True, padding="max_length", max_length=self.max_len, return_tensors="pt"
