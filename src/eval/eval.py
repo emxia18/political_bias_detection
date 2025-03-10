@@ -20,14 +20,11 @@ _, val_data = train_test_split(full_data, test_size=0.1, random_state=42)
 
 processed_data = preprocessor.load_data(val_data)
 encoded_data, label_mapping = preprocessor.encode_data(processed_data)
-print(label_mapping)
 
 texts = [f"{title} {text}" for title, text, _ in processed_data]
 true_labels = [label_mapping[label] for _, _, label in processed_data]
 
-print(label_mapping)
-
 print(f"Validation Samples: {len(texts)}")
 
-word_importance = evaluator.analyze_word_importance(texts)
+word_importance = evaluator.analyze_word_importance(texts, label_mapping)
 accuracy = evaluator.evaluate_model(texts, true_labels, label_mapping)

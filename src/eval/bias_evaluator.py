@@ -18,9 +18,10 @@ class BiasEvaluator:
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
         self.model.eval()
 
-    def analyze_word_importance(self, texts):
+    def analyze_word_importance(self, texts, label_mapping):
         integrated_gradients = IntegratedGradients(self._forward_fn)
-        word_importance = Counter()
+        
+        word_importance = {}
         total_word_count = Counter()
 
         for count, text in enumerate(texts):
@@ -36,38 +37,43 @@ class BiasEvaluator:
 
             baseline = torch.zeros_like(embeddings).to(self.device)
 
-            attributions = integrated_gradients.attribute(
-                inputs=embeddings,
-                baselines=baseline,
-                target=0,
-                additional_forward_args=(attention_mask,),
-                return_convergence_delta=False
-            )
+            for class_name, class_label in label_mapping.items():
+                attributions = integrated_gradients.attribute(
+                    inputs=embeddings,
+                    baselines=baseline,
+                    target=class_label, 
+                    additional_forward_args=(attention_mask,),
+                    return_convergence_delta=False
+                )
 
-            tokens = self.tokenizer.convert_ids_to_tokens(input_ids[0])
-            attributions = attributions.sum(dim=-1).squeeze(0).detach().cpu().numpy()
-            attributions = np.abs(attributions)
-            attributions /= attributions.sum()
+                tokens = self.tokenizer.convert_ids_to_tokens(input_ids[0])
+                attributions = attributions.sum(dim=-1).squeeze(0).detach().cpu().numpy()
+                attributions = np.abs(attributions)
+                attributions /= attributions.sum()
 
-            for token, score in zip(tokens, attributions):
-                if token not in ["[CLS]", "[SEP]", "[PAD]"]:
-                    word_importance[token] += score
-                    total_word_count[token] += 1
+                for token, score in zip(tokens, attributions):
+                    if token not in ["[CLS]", "[SEP]", "[PAD]"]:
+                        if token not in word_importance:
+                            word_importance[token] = {label: 0 for label in label_mapping.keys()} 
 
-        avg_word_importance = {word: word_importance[word] / total_word_count[word] for word in word_importance}
-        sorted_importance = sorted(avg_word_importance.items(), key=lambda x: x[1], reverse=True)
+                        word_importance[token][class_name] += score
+                        total_word_count[token] += 1
 
-        if sorted_importance:
-            print("Top word importance:", sorted_importance[0])
-        else:
-            print("No words found for importance analysis.")
+        for word, scores in word_importance.items():
+            total = sum(scores.values())
+            if total > 0:
+                for class_name in scores:
+                    word_importance[word][class_name] /= total 
 
-        importance_df = pd.DataFrame(sorted_importance, columns=["Word", "Importance"])
-        importance_df.to_csv("word_importance_title.csv", index=False)
+        importance_df = pd.DataFrame.from_dict(word_importance, orient="index").reset_index()
+        importance_df.columns = ["Word"] + list(label_mapping.keys())
+        importance_df = importance_df.sort_values(by=list(label_mapping.keys()), ascending=False)
 
-        print("\nTop Important Words:")
+        importance_df.to_csv("word_importance_per_class.csv", index=False)
+
+        print("\nTop Important Words Per Class:")
         print(importance_df.head(20))
-        print("\nWord importance scores saved to 'word_importance_title.csv'")
+        print("\nWord importance scores saved to 'word_importance_per_class.csv'")
 
         return importance_df
 
@@ -99,12 +105,12 @@ class BiasEvaluator:
             "Predicted Bias": predicted_biases
         })
 
-        results_df.to_csv("title_evaluation_results.csv", index=False)
+        results_df.to_csv("evaluation_results.csv", index=False)
 
         accuracy = accuracy_score(true_labels, predictions)
 
         print(results_df.head())
-        print("\nEvaluation results saved to 'title_evaluation_results.csv'")
+        print("\nEvaluation results saved to 'evaluation_results.csv'")
         print(f"\nRaw Accuracy Score: {accuracy:.4f}")
 
         print("\nClassification Report:")
@@ -118,7 +124,7 @@ class BiasEvaluator:
         plt.xlabel("Predicted")
         plt.ylabel("Actual")
         plt.title("Confusion Matrix")
-        plt.savefig("src/title_confusion_matrix.png")
+        plt.savefig("src/confusion_matrix.png")
         plt.show()
 
         return accuracy
