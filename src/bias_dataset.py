@@ -6,6 +6,7 @@ from transformers import AutoTokenizer
 from torch.utils.data import Dataset, DataLoader
 
 BIAS_MAP_DEFAULT = {'left': 'left', 'center': 'center', 'right': 'right'}
+LABEL_MAPPING = {'left': 0, 'center': 1, 'right': 2}
 
 class DataPreprocessor:
     def __init__(self, tokenizer_model="distilbert-base-uncased", max_len=128, attention_type="NONE"):
@@ -44,8 +45,10 @@ class DataPreprocessor:
         texts = [f"{title} {text}" for title, text, _ in data]
         labels = [data[i][2] for i in range(len(data))]
 
-        label_mapping = {label: idx for idx, label in enumerate(set(labels))}
+        # label_mapping = {label: idx for idx, label in enumerate(set(labels))}
+        label_mapping = LABEL_MAPPING
         numerical_labels = [label_mapping[label] for label in labels]
+        print(label_mapping, numerical_labels)
 
         encodings = self.tokenizer(
             texts, truncation=True, padding="max_length", max_length=self.max_len, return_tensors="pt"
