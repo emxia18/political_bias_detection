@@ -18,7 +18,7 @@ class BiasEvaluator:
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
         self.model.eval()
 
-    def analyze_word_importance(self, texts, label_mapping):
+    def analyze_word_importance(self, texts, label_mapping, save_csv):
         integrated_gradients = IntegratedGradients(self._forward_fn)
         
         word_importance = {}
@@ -69,11 +69,11 @@ class BiasEvaluator:
         importance_df.columns = ["Word"] + list(label_mapping.keys())
         importance_df = importance_df.sort_values(by=list(label_mapping.keys()), ascending=False)
 
-        importance_df.to_csv("word_importance_per_class.csv", index=False)
+        importance_df.to_csv(save_csv, index=False)
 
         print("\nTop Important Words Per Class:")
         print(importance_df.head(20))
-        print("\nWord importance scores saved to 'word_importance_per_class.csv'")
+        print(f"\nWord importance scores saved to '{save_csv}'")
 
         return importance_df
 
@@ -81,7 +81,7 @@ class BiasEvaluator:
         outputs = self.model(inputs_embeds=embeddings, attention_mask=attention_mask)
         return outputs.logits
 
-    def evaluate_model(self, texts, true_labels, label_mapping):
+    def evaluate_model(self, texts, true_labels, label_mapping, eval_results_csv, confusion_matrix_csv):
         self.model.eval()
         
         predictions = []
@@ -105,12 +105,12 @@ class BiasEvaluator:
             "Predicted Bias": predicted_biases
         })
 
-        results_df.to_csv("evaluation_results.csv", index=False)
+        results_df.to_csv(eval_results_csv, index=False)
 
         accuracy = accuracy_score(true_labels, predictions)
 
         print(results_df.head())
-        print("\nEvaluation results saved to 'evaluation_results.csv'")
+        print(f"\nEvaluation results saved to '{eval_results_csv}'")
         print(f"\nRaw Accuracy Score: {accuracy:.4f}")
 
         print("\nClassification Report:")
@@ -124,7 +124,7 @@ class BiasEvaluator:
         plt.xlabel("Predicted")
         plt.ylabel("Actual")
         plt.title("Confusion Matrix")
-        plt.savefig("src/confusion_matrix.png")
+        plt.savefig(confusion_matrix_csv)
         plt.show()
 
         return accuracy
