@@ -10,6 +10,7 @@ LABEL_MAPPING = {'left': 0, 'center': 1, 'right': 2}
 
 class DataPreprocessor:
     def __init__(self, tokenizer_model="distilbert-base-uncased", max_len=128, attention_type="NONE"):
+
         self.tokenizer = AutoTokenizer.from_pretrained(tokenizer_model)
         self.max_len = max_len
         self.attention_type = attention_type
@@ -44,6 +45,7 @@ class DataPreprocessor:
         texts = [f"{title} {text}" for title, text, _ in data]
         labels = [data[i][2] for i in range(len(data))]
 
+        # label_mapping = {label: idx for idx, label in enumerate(set(labels))}
         label_mapping = LABEL_MAPPING
         numerical_labels = [label_mapping[label] for label in labels]
 
@@ -53,10 +55,8 @@ class DataPreprocessor:
 
         attention_bias = torch.ones_like(encodings["input_ids"], dtype=torch.float)
 
-        if self.attention_type == "TITLE":
-            attention_bias[:, 20:] = 0.5 
-
-        attention_bias = attention_bias.mean(dim=1, keepdim=True)
+        if (self.attention_type == "TITLE"):
+            attention_bias[:, 20:] = 0.5
 
         encoded_data = list(zip(encodings["input_ids"], encodings["attention_mask"], numerical_labels, attention_bias))
         return encoded_data, label_mapping
@@ -74,5 +74,5 @@ class BiasDataset(Dataset):
             "input_ids": input_ids,
             "attention_mask": attention_mask,
             "labels": torch.tensor(label, dtype=torch.long),
-            "attention_bias": attention_bias,  # No need to convert, already float
+            "attention_bias": attention_bias,
         }

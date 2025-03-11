@@ -27,4 +27,4 @@ val_dataset = BiasDataset(val_encoded)
 trainer = BiasTitleTrainer(train_dataset, val_dataset)
 trainer.train()
 
-trainer.push_to_huggingface("emxia18/bias-attention")
+trainer.push_to_huggingface("emxia18/bias-attention-max")

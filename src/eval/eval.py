@@ -8,7 +8,7 @@ from bias_dataset import DataPreprocessor
 from sklearn.model_selection import train_test_split
 import pandas as pd
 
-MODEL_NAME = "emxia18/bias-vanilla-3"
+MODEL_NAME = "emxia18/bias-vanilla-4"
 
 evaluator = BiasEvaluator(MODEL_NAME)
 preprocessor = DataPreprocessor()
@@ -24,7 +24,7 @@ encoded_data, label_mapping = preprocessor.encode_data(processed_data)
 texts = [f"{title} {text}" for title, text, _ in processed_data]
 true_labels = [label_mapping[label] for _, _, label in processed_data]
 
-print(f"Validation Samples: {len(texts)}")
+print(f"Validation Samples: {len(texts)}") 
 
-word_importance = evaluator.analyze_word_importance(texts, label_mapping)
-accuracy = evaluator.evaluate_model(texts, true_labels, label_mapping)
+word_importance = evaluator.analyze_word_importance(texts, label_mapping, 'src/word_importance_vanilla_4.csv')
+accuracy = evaluator.evaluate_model(texts, true_labels, label_mapping, 'src/eval_results_vanilla_4.csv', 'src/confusion_matrix_vanilla_4.png')

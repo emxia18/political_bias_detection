@@ -20,7 +20,7 @@ class BiasTrainer:
         self.val_dataset = val_dataset
         self.num_labels = num_labels
 
-    def train(self, output_dir='./results', epochs=3, batch_size=8):
+    def train(self, output_dir='./results', epochs=4, batch_size=8):
         training_args = TrainingArguments(
             output_dir=output_dir,
             num_train_epochs=epochs,

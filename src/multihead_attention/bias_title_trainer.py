@@ -1,8 +1,9 @@
 import torch
 import wandb
-from transformers import Trainer, TrainingArguments
+import numpy as np
+from transformers import Trainer, TrainingArguments, EvalPrediction
 from biased_bert import BiasedDistilBERT
-from transformers import DistilBertModel, DistilBertForSequenceClassification, DistilBertConfig, DistilBertTokenizer
+from transformers import DistilBertTokenizer
 
 class BiasTitleTrainer:
     def __init__(self, train_dataset, val_dataset, tokenizer_model="distilbert-base-uncased", model_name="distilbert-base-uncased", num_labels=3):
@@ -24,9 +25,10 @@ class BiasTitleTrainer:
             evaluation_strategy="epoch",
             save_strategy="epoch",
             save_total_limit=1,
-            load_best_model_at_end=False,
+            load_best_model_at_end=False, 
             report_to="wandb",
-            run_name=wandb.run.name
+            run_name=wandb.run.name,
+            max_grad_norm=1.0
         )
 
         trainer = Trainer(
@@ -38,11 +40,18 @@ class BiasTitleTrainer:
                 "input_ids": torch.stack([x["input_ids"] for x in batch]),
                 "attention_mask": torch.stack([x["attention_mask"] for x in batch]),
                 "labels": torch.tensor([x["labels"] for x in batch], dtype=torch.long),
-                "attention_bias": torch.stack([x["attention_bias"] for x in batch]) if "attention_bias" in batch[0] else None,
-            }
+                "attention_bias": torch.stack([x["attention_bias"] for x in batch]) if batch[0].get("attention_bias", None) is not None else None,
+            },
+            compute_metrics=self.compute_metrics,
         )
 
         trainer.train()
+    
+    def compute_metrics(self, eval_pred: EvalPrediction):
+        logits, labels = eval_pred.predictions, eval_pred.label_ids
+        predictions = np.argmax(logits, axis=-1)
+        acc = (predictions == labels).mean()
+        return {"accuracy": acc} 
 
     def push_to_huggingface(self, repo_name, organization=None):
         self.model.push_to_hub(repo_name, organization=organization)
