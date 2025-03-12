@@ -29,8 +29,11 @@ print(f"Validation Samples: {len(texts)}")
 # word_importance = evaluator.analyze_word_importance(texts, label_mapping, 'src/word_importance_vanilla_4.csv')
 # accuracy = evaluator.evaluate_model(texts, true_labels, label_mapping, 'src/eval_results_vanilla_4.csv', 'src/confusion_matrix_vanilla_4.png')
 
-sample_sentence = "This is a test sentence to analyze the model's attention."
+sample_sentence = "This is a test sentence to analyze the models attention"
 target_label = list(label_mapping.keys())[0]  
 
-print(f"\nHighlighting important words for the target label: {target_label}\n")
-evaluator.highlight_text(sample_sentence, label_mapping, target_label)
+word_importance = evaluator.get_word_importance(sample_sentence, label_mapping, target_label)
+
+print("\nWord Importance Scores:")
+for word, score in word_importance.items():
+    print(f"{word}: {score:.4f}")

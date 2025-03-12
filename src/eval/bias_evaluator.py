@@ -4,6 +4,7 @@ import numpy as np
 import torch.nn.functional as F
 import seaborn as sns
 import matplotlib.pyplot as plt
+import matplotlib.patches as patches
 
 from collections import Counter
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
@@ -130,7 +131,7 @@ class BiasEvaluator:
 
         return accuracy
 
-    def highlight_text(self, sentence, label_mapping, target_label):
+    def get_word_importance(self, sentence, label_mapping, target_label):
         integrated_gradients = IntegratedGradients(self._forward_fn)
         inputs = self.tokenizer(sentence, return_tensors="pt", padding=True, truncation=True, max_length=128)
         input_ids = inputs["input_ids"].to(self.device)
@@ -152,16 +153,10 @@ class BiasEvaluator:
         tokens = self.tokenizer.convert_ids_to_tokens(input_ids[0])
         attributions = attributions.sum(dim=-1).squeeze(0).detach().cpu().numpy()
         attributions = np.abs(attributions)
-        attributions /= attributions.sum()
 
-        max_attr = max(attributions) if attributions.size > 0 else 1
-        highlighted_text = ""
-        
-        for token, score in zip(tokens, attributions):
-            if token in ["[CLS]", "[SEP]", "[PAD]"]:
-                continue
-            intensity = int((score / max_attr) * 255)
-            color = f"rgba(255, 0, 0, {score / max_attr:.2f})"
-            highlighted_text += f'<span style="background-color: {color}; padding: 2px; border-radius: 5px;">{token}</span> '
+        if attributions.sum() > 0:
+            attributions /= attributions.sum()
 
-        display(HTML(f"<p style='font-size:16px;'>{highlighted_text}</p>"))
+        word_importance = {token.replace("##", ""): score for token, score in zip(tokens, attributions) if token not in ["[CLS]", "[SEP]", "[PAD]"]}
+
+        return word_importance
