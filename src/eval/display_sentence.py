@@ -14,49 +14,36 @@ def get_color(value):
 
 def save_highlighted_words(word_dict, filename="highlighted_words.png"):
     normalized_dict = normalize_values(word_dict)
-    fig, ax = plt.subplots(figsize=(14, 2))
+    
+    # Create figure
+    fig, ax = plt.subplots(figsize=(12, 1.5))
     ax.axis("off")
     
-    font_props = matplotlib.font_manager.FontProperties(family='sans-serif', size=20)
+    # Define fixed spacing parameters
+    x_pos = 0.1
+    y_pos = 0.5
+    word_spacing = 0.03  # Fixed space between words
     
-    t = ax.text(0, 0, " ", fontproperties=font_props)
-    fig.canvas.draw()
-    renderer = fig.canvas.get_renderer()
-    space_bbox = t.get_window_extent(renderer=renderer)
-    t.remove()
-
-    inv = ax.transData.inverted()
-    space_bbox_data = inv.transform([[space_bbox.x0, space_bbox.y0], [space_bbox.x1, space_bbox.y1]])
-    space_width = space_bbox_data[1][0] - space_bbox_data[0][0]
-    
-    word_texts = []
-    word_widths = []
-    for word in normalized_dict.keys():
-        t = ax.text(0, 0, word, fontproperties=font_props)
-        fig.canvas.draw()
-        bbox = t.get_window_extent(renderer=renderer)
-        bbox_data = inv.transform([[bbox.x0, bbox.y0], [bbox.x1, bbox.y1]])
-        width = bbox_data[1][0] - bbox_data[0][0]
-        t.remove()
-        word_texts.append(word)
-        word_widths.append(width)
-    
-    spacing_factor = 1.0
-    
-    x_pos = 0
-    texts = []
-    for word, width, norm_value in zip(word_texts, word_widths, normalized_dict.values()):
+    for word, norm_value in normalized_dict.items():
+        # Get color for this word
         color = get_color(norm_value)
-        t = ax.text(x_pos, 0, word, fontproperties=font_props, color=color, ha="left", va="center")
-        texts.append(t)
-        x_pos += width + space_width * spacing_factor
-
-    ax.set_xlim(-0.1, x_pos + 0.1)
-    ax.set_ylim(-0.5, 0.5)
+        
+        # Add the word
+        t = ax.text(x_pos, y_pos, word, fontsize=20, color=color, ha="left", va="center")
+        
+        # Get the rendered width of this word
+        fig.canvas.draw()
+        bbox = t.get_window_extent()
+        width_inches = bbox.width / fig.dpi
+        
+        # Move position past this word plus fixed spacing
+        x_pos += width_inches + word_spacing
     
-    plt.tight_layout()
+    # Set limits to fit content
+    ax.set_xlim(0, x_pos + 0.1)
+    ax.set_ylim(0, 1)
+    
     plt.savefig(filename, bbox_inches="tight", dpi=300)
-    plt.show()
     plt.close()
 
 word_frequencies = {
