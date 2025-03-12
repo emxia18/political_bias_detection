@@ -6,10 +6,11 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 from collections import Counter
-from transformers import DistilBertTokenizer, DistilBertForSequenceClassification, Trainer, TrainingArguments
-from captum.attr import IntegratedGradients
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
+from captum.attr import IntegratedGradients
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+from IPython.display import display, HTML
+
 
 class BiasEvaluator:
     def __init__(self, model_name, device=None):
@@ -128,3 +129,39 @@ class BiasEvaluator:
         plt.show()
 
         return accuracy
+
+    def highlight_text(self, sentence, label_mapping, target_label):
+        integrated_gradients = IntegratedGradients(self._forward_fn)
+        inputs = self.tokenizer(sentence, return_tensors="pt", padding=True, truncation=True, max_length=128)
+        input_ids = inputs["input_ids"].to(self.device)
+        attention_mask = inputs["attention_mask"].to(self.device)
+
+        embeddings = self.model.get_input_embeddings()(input_ids).detach().to(self.device)
+        embeddings.requires_grad_()
+
+        baseline = torch.zeros_like(embeddings).to(self.device)
+
+        attributions = integrated_gradients.attribute(
+            inputs=embeddings,
+            baselines=baseline,
+            target=label_mapping[target_label],
+            additional_forward_args=(attention_mask,),
+            return_convergence_delta=False
+        )
+
+        tokens = self.tokenizer.convert_ids_to_tokens(input_ids[0])
+        attributions = attributions.sum(dim=-1).squeeze(0).detach().cpu().numpy()
+        attributions = np.abs(attributions)
+        attributions /= attributions.sum()
+
+        max_attr = max(attributions) if attributions.size > 0 else 1
+        highlighted_text = ""
+        
+        for token, score in zip(tokens, attributions):
+            if token in ["[CLS]", "[SEP]", "[PAD]"]:
+                continue
+            intensity = int((score / max_attr) * 255)
+            color = f"rgba(255, 0, 0, {score / max_attr:.2f})"
+            highlighted_text += f'<span style="background-color: {color}; padding: 2px; border-radius: 5px;">{token}</span> '
+
+        display(HTML(f"<p style='font-size:16px;'>{highlighted_text}</p>"))

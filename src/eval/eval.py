@@ -26,5 +26,11 @@ true_labels = [label_mapping[label] for _, _, label in processed_data]
 
 print(f"Validation Samples: {len(texts)}") 
 
-word_importance = evaluator.analyze_word_importance(texts, label_mapping, 'src/word_importance_vanilla_4.csv')
-accuracy = evaluator.evaluate_model(texts, true_labels, label_mapping, 'src/eval_results_vanilla_4.csv', 'src/confusion_matrix_vanilla_4.png')
+# word_importance = evaluator.analyze_word_importance(texts, label_mapping, 'src/word_importance_vanilla_4.csv')
+# accuracy = evaluator.evaluate_model(texts, true_labels, label_mapping, 'src/eval_results_vanilla_4.csv', 'src/confusion_matrix_vanilla_4.png')
+
+sample_sentence = "This is a test sentence to analyze the model's attention."
+target_label = list(label_mapping.keys())[0]  
+
+print(f"\nHighlighting important words for the target label: {target_label}\n")
+evaluator.highlight_text(sample_sentence, label_mapping, target_label)
