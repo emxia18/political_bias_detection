@@ -29,7 +29,7 @@ print(f"Validation Samples: {len(texts)}")
 # word_importance = evaluator.analyze_word_importance(texts, label_mapping, 'src/word_importance_vanilla_4.csv')
 # accuracy = evaluator.evaluate_model(texts, true_labels, label_mapping, 'src/eval_results_vanilla_4.csv', 'src/confusion_matrix_vanilla_4.png')
 
-sample_sentence = "This is a test sentence to analyze the models attention"
+sample_sentence = "Climate alarmists falsely claim the world is literally on fire"
 target_label = list(label_mapping.keys())[0]  
 
 word_importance = evaluator.get_word_importance(sample_sentence, label_mapping, target_label)

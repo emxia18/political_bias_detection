@@ -40,16 +40,16 @@ def save_highlighted_words(word_dict, filename="highlighted_words.png"):
     plt.close()
 
 word_frequencies = {
-    "this": 0.0453,
-    "is": 0.0683,
-    "a": 0.0093,
-    "test": 0.0508,
-    "sentence": 0.1118,
-    "to": 0.1134,
-    "analyze": 0.1943,
-    "the": 0.1030,
-    "models": 0.0206,
-    "attention": 0.0234
+    "climate": 0.0525,
+    "alarmists": 0.1512 + 0.0594,
+    "falsely": 0.0610,
+    "claim": 0.0094,
+    "the": 0.0360,
+    "world": 0.1461,
+    "is": 0.0105,
+    "literally": 0.0107,
+    "on": 0.0082,
+    "fire": 0.0250,
 }
 
 save_highlighted_words(word_frequencies, "src/highlighted_words.png")
